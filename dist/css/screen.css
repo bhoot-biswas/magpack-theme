@@ -74,38 +74,22 @@ body {
 	}
 }
 
-.app-footer {
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
+.app-footer .widget-area {
+	padding-top: 5rem;
+	padding-bottom: 2rem;
+	background-color: #f8f9fa;
 }
-.app-footer::after {
-	display: block;
-	clear: both;
-	content: "";
+.app-footer__credit {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
-@media (min-width: 576px) {
-	.app-footer {
-		max-width: 540px;
+@media (max-width: 991.98px) {
+	.app-footer .widget-column {
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 }
-@media (min-width: 768px) {
-	.app-footer {
-		max-width: 720px;
-	}
-}
-@media (min-width: 992px) {
-	.app-footer {
-		max-width: 960px;
-	}
-}
-@media (min-width: 1200px) {
-	.app-footer {
-		max-width: 1140px;
-	}
-}
+
 .comments__list {
 	padding-left: 0;
 	list-style: none;

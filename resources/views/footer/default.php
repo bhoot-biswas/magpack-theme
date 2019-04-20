@@ -1,8 +1,12 @@
 	<footer class="app-footer">
 
-		<p class="app-footer__credit">
-			<?php esc_html_e( 'Powered by crazy ideas and passion.' ) ?>
-		</p>
+		<?php Hybrid\View\display( 'footer', 'footer-widgets' ) ?>
+
+		<div class="app-footer__credit">
+			<div class="container">
+				<?php esc_html_e( 'Powered by crazy ideas and passion.' ) ?>
+			</div>
+		</div>
 
 	</footer>
 

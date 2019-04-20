@@ -248,7 +248,27 @@ add_action( 'widgets_init', function() {
 
 	register_sidebar( [
 		'id'   => 'primary',
-		'name' => esc_html_x( 'Primary', 'sidebar' )
+		'name' => esc_html_x( 'Primary', 'sidebar', 'mag' )
+	] + $args );
+
+	register_sidebar( [
+		'id'   => 'footer-1',
+		'name' => esc_html_x( 'Footer 1', 'sidebar', 'mag' )
+	] + $args );
+
+	register_sidebar( [
+		'id'   => 'footer-2',
+		'name' => esc_html_x( 'Footer 2', 'sidebar', 'mag' )
+	] + $args );
+
+	register_sidebar( [
+		'id'   => 'footer-3',
+		'name' => esc_html_x( 'Footer 3', 'sidebar', 'mag' )
+	] + $args );
+
+	register_sidebar( [
+		'id'   => 'footer-4',
+		'name' => esc_html_x( 'Footer 4', 'sidebar', 'mag' )
 	] + $args );
 
 }, 5 );
