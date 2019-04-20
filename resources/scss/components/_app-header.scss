@@ -7,9 +7,22 @@
 ////
 
 .app-header {
-	@include clearfix();
-	@include make-container();
-    @include make-container-max-widths();
+	position: relative;
+	display: flex;
+	flex-wrap: wrap; // allow us to do the line break for collapsing content
+	align-items: center;
+	justify-content: space-between; // space out brand from logo
+	padding: $navbar-padding-y $navbar-padding-x;
+
+	// Because flex properties aren't inherited, we need to redeclare these first
+	// few properties so that content nested within behave properly.
+	> .container,
+	> .container-fluid {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
 
 	// Wrapper around the title and description.
 	&__branding {}
@@ -28,4 +41,23 @@
 
 	// The site description.
 	&__description {}
+
+	@include media-breakpoint-down(sm) {
+		> .container,
+        > .container-fluid {
+			padding-right: 0;
+            padding-left: 0;
+        }
+	}
+
+	@include media-breakpoint-up(md) {
+		flex-flow: row nowrap;
+        justify-content: flex-start;
+
+		// For nesting containers, have to redeclare for alignment purposes
+        > .container,
+        > .container-fluid {
+			flex-wrap: nowrap;
+        }
+	}
 }

@@ -10,69 +10,87 @@
 
 	// Specific nav menus.
 	&--primary {
-		clear: both;
+		flex-basis: 100%;
+		flex-grow: 1;
+		// For always expanded or extra full navbars, ensure content aligns itself
+		// properly vertically. Can be easily overridden with flex utilities.
+		align-items: center;
+
+		border-bottom: $dropdown-border-width solid $dropdown-border-color;
+
+		// none by default, but block on "open" of the menu
+		display: none;
+	}
+
+	&.toggled {
 		display: block;
-		float: left;
-		width: 100%;
 	}
 
 	// Menu title.
 	&__title {}
 
 	// Menu items list.
-	&__items,
-	&__sub-menu {
-		display: none;
-		list-style: none;
-		margin: 0;
+	&__items {
+		display: flex;
+		flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
 		padding-left: 0;
+		margin-bottom: 0;
+		list-style: none;
+	}
+
+	&__sub-menu {
+		position: static;
+	    float: none;
+		top: 100%;
+  		right: 0;
+		left: auto;
+		z-index: $zindex-dropdown;
+		display: none; // none by default, but block on "open" of the menu
+		min-width: $dropdown-min-width;
+		padding-left: 0;
+  		margin: 0 1rem 0; // override default ul
+		text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  		list-style: none;
+		background-color: $dropdown-bg;
+  		background-clip: padding-box;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
+			top: 0;
+			right: 100%;
 		}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		li {
+			display: block;
+			width: 100%; // For `<button>`s
+		}
+
+		a {
+		}
+
+		:hover > a,
+		.focus > a {
+		}
+
+		a:hover,
+		a.focus {
 		}
 	}
 
 	// Individual items.
 	&__item {
-		float: left;
+		clear: both;
+		// float: left;
 		position: relative;
+		border-top: $dropdown-border-width solid $dropdown-border-color;
 
-		&:hover > a,
-		&.focus > a {
+		&:hover,
+		&.focus {
+			> ul {
+				display: block;
+			}
+
+			> a {
+			}
 		}
 	}
 
@@ -80,20 +98,109 @@
 	&__link {
 		display: block;
 		text-decoration: none;
+		color: #1a1a1a;
+		line-height: 1.3125;
+		outline-offset: -1px;
+		padding: 0.84375em 0;
+	}
+
+	@include media-breakpoint-up(md) {
+		&--primary {
+			display: flex !important;  // stylelint-disable-line declaration-no-important
+
+            // Changes flex-bases to auto because of an IE10 bug
+            flex-basis: auto;
+
+			border: 0;
+		}
+
+		&__items {
+			flex-direction: row;
+			margin-left: auto;
+		}
+
+		&__sub-menu {
+			position: absolute;
+			margin: 0;
+			border-bottom: $dropdown-border-width solid $dropdown-border-color;
+
+			&:before,
+			&:after {
+				border-style: solid;
+				content: "";
+				position: absolute;
+			}
+
+			&:before {
+				border-color: #d1d1d1 transparent;
+				border-width: 0 10px 10px;
+				right: 9px;
+				top: -9px;
+			}
+
+			&:after {
+				border-color: #fff transparent;
+				border-width: 0 8px 8px;
+				right: 11px;
+				top: -7px;
+			}
+
+			ul {
+				&:before,
+				&::after {
+					border: 0;
+				}
+			}
+
+			li {
+				border: $dropdown-border-width solid $dropdown-border-color;
+				border-bottom-width: 0;
+			}
+		}
+
+		&__item {
+			border: 0;
+		}
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+// Button for toggling the navbar when in its collapsed state
+.menu-toggle {
+	padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+    font-size: $navbar-toggler-font-size;
+    line-height: 1;
+    background-color: transparent; // remove default button style
+    border: $border-width solid transparent; // remove default button style
+    @include border-radius($navbar-toggler-border-radius);
+
+    @include hover-focus {
+		text-decoration: none;
+    }
+
+    // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+    &:not(:disabled):not(.disabled) {
+		cursor: pointer;
+    }
 }
 
-@media screen and (min-width: 37.5em) {
+// Keep as a separate element so folks can easily override it with another icon
+// or image file as needed.
+.menu-toggle-icon {
+	display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.menu-toggle-icon {
+    background-image: $navbar-light-toggler-icon-bg;
+}
+
+@include media-breakpoint-up(md) {
 	.menu-toggle {
 		display: none;
-	}
-	.main-navigation ul {
-		display: block;
 	}
 }
