@@ -7,6 +7,9 @@
 ////
 
 .app-footer {
+	@include clearfix();
+	@include make-container();
+    @include make-container-max-widths();
 
 	&__credit {}
 }

@@ -1,6 +1,6 @@
 <?php if ( is_active_sidebar( $data->sidebar ) ) : ?>
 
-	<aside <?php Hybrid\Attr\display( 'sidebar', $data->sidebar ) ?>>
+	<aside <?php Hybrid\Attr\display( 'sidebar', $data->sidebar, [ 'class' => 'widget-area' ] ) ?>>
 
 		<h3 class="sidebar__title screen-reader-text">
 			<?php Hybrid\Sidebar\display_name( $data->sidebar ) ?>

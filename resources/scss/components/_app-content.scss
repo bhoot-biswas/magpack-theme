@@ -9,5 +9,7 @@
 ////
 
 .app-content {
-
+    @include clearfix();
+	@include make-container();
+    @include make-container-max-widths();
 }

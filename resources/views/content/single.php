@@ -1,20 +1,24 @@
 <div class="app-content">
 
-	<main id="main" class="app-main">
+	<div id="primary" class="content-area">
 
-		<?php if ( have_posts() ) : ?>
+		<main id="main" class="app-main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( have_posts() ) : ?>
 
-				<?php Hybrid\View\display( 'entry/single', Hybrid\Post\hierarchy() ) ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php comments_template() ?>
+					<?php Hybrid\View\display( 'entry/single', Hybrid\Post\hierarchy() ) ?>
 
-			<?php endwhile ?>
+					<?php comments_template() ?>
 
-		<?php endif ?>
+				<?php endwhile ?>
 
-	</main>
+			<?php endif ?>
+
+		</main>
+
+	</div>
 
 	<?php Hybrid\View\display( 'sidebar', 'primary', [ 'sidebar' => 'primary' ] ) ?>
 

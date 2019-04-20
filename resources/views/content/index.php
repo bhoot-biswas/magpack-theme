@@ -1,22 +1,26 @@
 <div class="app-content">
 
-	<main id="main" class="app-main">
+	<div id="primary" class="content-area">
 
-		<?php Hybrid\View\display( 'partials', 'archive-header' ) ?>
+		<main id="main" class="app-main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php Hybrid\View\display( 'partials', 'archive-header' ) ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( have_posts() ) : ?>
 
-				<?php Hybrid\View\display( 'entry/archive', Hybrid\Post\hierarchy() ) ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endwhile ?>
+					<?php Hybrid\View\display( 'entry/archive', Hybrid\Post\hierarchy() ) ?>
 
-			<?php Hybrid\View\display( 'nav/pagination', 'posts' ) ?>
+				<?php endwhile ?>
 
-		<?php endif ?>
+				<?php Hybrid\View\display( 'nav/pagination', 'posts' ) ?>
 
-	</main>
+			<?php endif ?>
+
+		</main>
+
+	</div>
 
 	<?php Hybrid\View\display( 'sidebar', 'primary', [ 'sidebar' => 'primary' ] ) ?>
 

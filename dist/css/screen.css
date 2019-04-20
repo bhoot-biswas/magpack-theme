@@ -3,6 +3,103 @@ body {
 	overflow-x: hidden;
 }
 
+.app-header {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.app-header::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+@media (min-width: 576px) {
+	.app-header {
+		max-width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.app-header {
+		max-width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.app-header {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px) {
+	.app-header {
+		max-width: 1140px;
+	}
+}
+.app-content {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.app-content::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+@media (min-width: 576px) {
+	.app-content {
+		max-width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.app-content {
+		max-width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.app-content {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px) {
+	.app-content {
+		max-width: 1140px;
+	}
+}
+
+.app-footer {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.app-footer::after {
+	display: block;
+	clear: both;
+	content: "";
+}
+@media (min-width: 576px) {
+	.app-footer {
+		max-width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.app-footer {
+		max-width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.app-footer {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px) {
+	.app-footer {
+		max-width: 1140px;
+	}
+}
 .menu--primary {
 	clear: both;
 	display: block;
@@ -10241,5 +10338,35 @@ h3 {
 		color: inherit;
 		border-color: #dee2e6;
 	}
+}
+.no-sidebar .content-area {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+.no-sidebar .app-main {
+	margin-right: 0;
+}
+
+@media (min-width: 768px) {
+	.content-area {
+		float: left;
+		margin: 0 -25% 0 0;
+		width: 100%;
+	}
+
+	.app-main {
+		margin: 0 25% 0 0;
+	}
+
+	.app-content .widget-area {
+		float: right;
+		overflow: hidden;
+		width: 25%;
+	}
+}
+.app-footer {
+	clear: both;
+	width: 100%;
 }
 /*# sourceMappingURL=screen.css.map*/

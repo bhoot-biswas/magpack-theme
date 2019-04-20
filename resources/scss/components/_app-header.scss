@@ -7,6 +7,9 @@
 ////
 
 .app-header {
+	@include clearfix();
+	@include make-container();
+    @include make-container-max-widths();
 
 	// Wrapper around the title and description.
 	&__branding {}
