@@ -12,7 +12,19 @@
 	&__reply-title {}
 
 	// The comment form.
-	&__form {}
+	&__form {
+		input[type="text"],
+		input[type="email"],
+		input[type="url"],
+		textarea {
+			@extend .form-control;
+		}
+
+		input[type="submit"] {
+			@extend .btn;
+  		    @extend .btn-secondary;
+		}
+	}
 
 	// Note section at the top of form.
 	&__notes {}
@@ -22,6 +34,7 @@
 
 	// The wrapping element around individual form fields.
 	&__field {
+		@extend .form-group;
 
 		&--comment {}
 		&--author {}
