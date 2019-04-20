@@ -101,6 +101,14 @@ body {
 		max-width: 1140px;
 	}
 }
+.comments__list {
+	padding-left: 0;
+	list-style: none;
+}
+.comments__list .children {
+	padding-left: 0;
+	list-style: none;
+}
 .menu--primary {
 	flex-basis: 100%;
 	flex-grow: 1;
