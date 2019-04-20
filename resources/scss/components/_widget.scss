@@ -7,6 +7,7 @@
 ////
 
 .widget {
+	margin-bottom: 3rem;
 
 	// Core widgets.
 	&--archives {}
@@ -28,5 +29,12 @@
 	&--tag-cloud {}
 
 	// Widget titles.
-	&__title {}
+	&__title {
+		font-size: $font-size-sm;
+		text-transform: uppercase;
+	}
+
+	ul {
+		@include list-unstyled;
+	}
 }
