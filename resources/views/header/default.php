@@ -16,8 +16,11 @@
 		<div class="container">
 			<div class="app-header__branding">
 				<?php the_custom_logo() ?>
-				<?php Hybrid\Site\display_title() ?>
-				<?php Hybrid\Site\display_description() ?>
+
+				<?php if ( is_customize_preview() || display_header_text() ) : ?>
+					<?php Hybrid\Site\display_title() ?>
+					<?php Hybrid\Site\display_description() ?>
+				<?php endif; ?>
 			</div>
 
 			<?php the_custom_header_markup() ?>
