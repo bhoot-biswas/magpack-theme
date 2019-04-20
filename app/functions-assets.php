@@ -30,6 +30,9 @@ add_action( 'wp_enqueue_scripts', function() {
 	// Disable core block styles.
 	wp_dequeue_style( 'wp-block-library' );
 
+	// Enqueue navigation scripts.
+	wp_enqueue_script( 'mag-navigation', asset( 'js/navigation.js' ), array(), '20151215', true );
+
 	// Load WordPress' comment-reply script where appropriate.
 	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() ) {
 		wp_enqueue_script( 'comment-reply' );
